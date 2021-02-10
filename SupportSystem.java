@@ -15,7 +15,7 @@ public class SupportSystem
 {
     private InputReader reader;
     private Responder responder;
-    
+
     /**
      * Creates a technical support system.
      */
@@ -38,8 +38,8 @@ public class SupportSystem
 
         while(!finished) {
             String input = reader.getInput();
-
-            if(input.startsWith("bye")) {
+            input = input.trim();
+            if(input.toLowerCase().startsWith("bye") || input.toLowerCase().endsWith("bye")) {
                 finished = true;
             }
             else {
