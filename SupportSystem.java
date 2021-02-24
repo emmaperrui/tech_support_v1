@@ -1,3 +1,4 @@
+
 /**
  * This class implements a technical support system. It is the top
  * level class in this project. The support system communicates via
@@ -42,7 +43,7 @@ public class SupportSystem
                 finished = true;
             }
             else {
-                String response = responder.generateResponse();
+                String response = responder.generateResponse(input);
                 System.out.println(response);
             }
         }
