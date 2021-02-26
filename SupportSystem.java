@@ -1,3 +1,4 @@
+import java.util.HashSet;
 
 /**
  * This class implements a technical support system. It is the top
@@ -34,12 +35,13 @@ public class SupportSystem
     public void start()
     {
         boolean finished = false;
-
+  
         printWelcome();
-
+        
         while(!finished) {
-            String input = reader.getInput();
-            if(input.toLowerCase().trim().equals("bye")){
+            HashSet<String> input = reader.getInput();
+ 
+            if(input.contains("bye")) {
                 finished = true;
             }
             else {
