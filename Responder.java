@@ -88,7 +88,7 @@ public class Responder
      * genera una respuesta en función de la pregunta introducida
      */
     public String generateResponse(HashSet<String> userInput){
-        String resultado = "";
+        String resultado = null;
         int coincidenciasGeneral = 0; 
         for(HashSet<String> palabrasRespuestas : respuestaAuxiliar.keySet()){
             int coincidenciasVuelta = 0;
