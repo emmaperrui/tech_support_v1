@@ -32,6 +32,8 @@ public class Responder
     HashSet<String> respuesta5;
     //respuesta 6
     HashSet<String> respuesta6;
+    //para evitar repeticiones de palabras
+    private String userInputRepetido;
 
     /**
      * Construct a Responder - nothing to do
@@ -79,14 +81,15 @@ public class Responder
         respuestaAuxiliar.put(respuesta4, "¡Qué tenga un buen día!");
         respuestaAuxiliar.put(respuesta5, "Sí");
         respuestaAuxiliar.put(respuesta6, "No");
+        userInputRepetido = "";
     }
 
     /**
      * genera una respuesta en función de la pregunta introducida
      */
     public String generateResponse(HashSet<String> userInput){
-        String resultado = null;
-        int coincidenciasGeneral = 0;
+        String resultado = "";
+        int coincidenciasGeneral = 0; 
         for(HashSet<String> palabrasRespuestas : respuestaAuxiliar.keySet()){
             int coincidenciasVuelta = 0;
             for(String palabraRespuesta : palabrasRespuestas){
@@ -99,9 +102,13 @@ public class Responder
                 }
             }
         }
+        if(userInputRepetido.equals(resultado)){
+            resultado = respuesta.get(rnd.nextInt(respuesta.size()));
+        }
         if(resultado == null){
             resultado = respuesta.get(rnd.nextInt(respuesta.size()));
         }
+        userInputRepetido = resultado;
         return resultado;
     }
 }
